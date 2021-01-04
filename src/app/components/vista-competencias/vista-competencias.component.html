@@ -7,7 +7,7 @@
         <p class="text-center">{{resultadoCompeticion?.area.name}}</p>
         <img *ngIf="resultadoCompeticion?.emblemUrl" src="{{resultadoCompeticion?.emblemUrl}}"
             alt="{{resultadoCompeticion?.name}}" class="mx-auto d-block img-fluid">
-        <img *ngIf="!resultadoCompeticion?.emblemUrl" src="../../../assets/img/notFoundCompetition.jpg"
+        <img *ngIf="!resultadoCompeticion?.emblemUrl" src="assets/img/notFoundCompetition.jpg"
             alt="{{resultadoCompeticion?.name}}" class="mx-auto d-block img-fluid mb-3"
             style="width: 200px; height: 175px;">
         <p class="text-success mt-3"><b>Inicio de temporada: {{resultadoCompeticion?.currentSeason.startDate | amLocale:
@@ -71,7 +71,7 @@
                             <p class="text-muted">{{equipo.shortName}}</p>
                             <img *ngIf="equipo?.crestUrl" src="{{equipo?.crestUrl}}" alt="{{equipo?.name}}"
                                 class="img-fluid">
-                            <img *ngIf="!equipo?.crestUrl" src="../../../assets/img/notFoundCompetition.jpg"
+                            <img *ngIf="!equipo?.crestUrl" src="assets/img/notFoundCompetition.jpg"
                                 alt="{{equipo?.name}}" class="img-fluid"><br><br>
                             <p><b>Dirrección: </b>{{equipo?.address}}</p>
                             <p><b>Sitio web: </b><a href="{{equipo?.website}}" target="_blank"

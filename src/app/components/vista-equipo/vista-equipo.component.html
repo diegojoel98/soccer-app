@@ -14,8 +14,8 @@
     <small class="text-center text-muted d-block mb-2">Nombre corto: {{resultadoEquipo?.tla}}</small>
     <img *ngIf="resultadoEquipo?.crestUrl" src="{{resultadoEquipo?.crestUrl}}" alt="{{resultadoEquipo?.name}}"
         class="img-fluid mx-auto d-block" style="width: 250px;"><br>
-    <img *ngIf="!resultadoEquipo?.crestUrl" src="../../../assets/img/notFoundCompetition.jpg"
-        alt="{{resultadoEquipo?.name}}" class="img-fluid mx-auto d-block" style="width: 200px;"><br>
+    <img *ngIf="!resultadoEquipo?.crestUrl" src="assets/img/notFoundCompetition.jpg" alt="{{resultadoEquipo?.name}}"
+        class="img-fluid mx-auto d-block" style="width: 200px;"><br>
     <p class="size13 text-center">Dirrección: {{resultadoEquipo?.address}}</p>
     <p class="size13 text-center">Teléfono: {{resultadoEquipo?.phone}}</p>
     <p class="size13 text-center">Website: <a href="{{resultadoEquipo?.website}}" class="text-decoration-none"
