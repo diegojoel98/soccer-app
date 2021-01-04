@@ -22,7 +22,7 @@ export class CompetenciasService {
   // Token for accessing data on football-data.org (see: https://www.football-data.org/client/register)
   HEADERS = new HttpHeaders({ 'X-Auth-Token': '526ae10c45564c82a2e546fd0074e4d1' });
   // Convenience constant
-  URL = 'http://api.football-data.org/v2/competitions/?plan=TIER_ONE';
+  URL = 'https://api.football-data.org/v2/competitions/?plan=TIER_ONE';
 
   constructor(
     private _http: HttpClient
@@ -40,7 +40,7 @@ export class CompetenciasService {
         resolve(this.cachedValues[query])
       }
       else {
-        this._http.get('http://api.football-data.org/v2/competitions/' + query, { headers: this.HEADERS })
+        this._http.get('https://api.football-data.org/v2/competitions/' + query, { headers: this.HEADERS })
           .toPromise()
           .then((response) => {
             resolve(response as CompeticionInterface)
@@ -60,7 +60,7 @@ export class CompetenciasService {
         resolve(this.cachedValues2[query])
       }
       else {
-        this._http.get('http://api.football-data.org/v2/competitions/' + query + '/teams', { headers: this.HEADERS })
+        this._http.get('https://api.football-data.org/v2/competitions/' + query + '/teams', { headers: this.HEADERS })
           .toPromise()
           .then((response) => {
             resolve(response as EquiposInterface)
@@ -80,7 +80,7 @@ export class CompetenciasService {
         resolve(this.cachedValues3[query])
       }
       else {
-        this._http.get('http://api.football-data.org/v2/competitions/' + query + '/standings', { headers: this.HEADERS })
+        this._http.get('https://api.football-data.org/v2/competitions/' + query + '/standings', { headers: this.HEADERS })
           .toPromise()
           .then((response) => {
             resolve(response as TablaInterface)
@@ -100,7 +100,7 @@ export class CompetenciasService {
         resolve(this.cachedValues4[query])
       }
       else {
-        this._http.get('http://api.football-data.org/v2/competitions/' + query + '/matches?status=SCHEDULED', { headers: this.HEADERS })
+        this._http.get('https://api.football-data.org/v2/competitions/' + query + '/matches?status=SCHEDULED', { headers: this.HEADERS })
           .toPromise()
           .then((response) => {
             resolve(response as PartidosCompetenciaInterface)
@@ -120,7 +120,7 @@ export class CompetenciasService {
         resolve(this.cachedValues5[query])
       }
       else {
-        this._http.get('http://api.football-data.org/v2/competitions/' + query + '/scorers', { headers: this.HEADERS })
+        this._http.get('https://api.football-data.org/v2/competitions/' + query + '/scorers', { headers: this.HEADERS })
           .toPromise()
           .then((response) => {
             resolve(response as GoleadoresInterface)
@@ -140,7 +140,7 @@ export class CompetenciasService {
         resolve(this.cachedValues6[query])
       }
       else {
-        this._http.get('http://api.football-data.org/v2/competitions/' + query + '/matches', { headers: this.HEADERS })
+        this._http.get('https://api.football-data.org/v2/competitions/' + query + '/matches', { headers: this.HEADERS })
           .toPromise()
           .then((response) => {
             resolve(response as PartidosMundialInterface)
@@ -160,7 +160,7 @@ export class CompetenciasService {
         resolve(this.cachedValues7[query])
       }
       else {
-        this._http.get('http://api.football-data.org/v2/' + 'teams/' + query, { headers: this.HEADERS })
+        this._http.get('https://api.football-data.org/v2/' + 'teams/' + query, { headers: this.HEADERS })
           .toPromise()
           .then((response) => {
             resolve(response as EquipoInterface)
