@@ -1,0 +1,60 @@
+<div class="container overflow-auto">
+
+    <div *ngIf="!resultadoEquipo">
+        <p class="text-center h3 ml-4">Cargando ...</p>
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center link title mt-3">{{resultadoEquipo?.name}}</h2>
+    <small class="text-center text-muted d-block">{{resultadoEquipo?.shortName}}</small>
+    <small class="text-center text-muted d-block mb-2">Nombre corto: {{resultadoEquipo?.tla}}</small>
+    <img *ngIf="resultadoEquipo?.crestUrl" src="{{resultadoEquipo?.crestUrl}}" alt="{{resultadoEquipo?.name}}"
+        class="img-fluid mx-auto d-block" style="width: 250px;"><br>
+    <img *ngIf="!resultadoEquipo?.crestUrl" src="../../../assets/img/notFoundCompetition.jpg"
+        alt="{{resultadoEquipo?.name}}" class="img-fluid mx-auto d-block" style="width: 200px;"><br>
+    <p class="size13 text-center">Dirrección: {{resultadoEquipo?.address}}</p>
+    <p class="size13 text-center">Teléfono: {{resultadoEquipo?.phone}}</p>
+    <p class="size13 text-center">Website: <a href="{{resultadoEquipo?.website}}" class="text-decoration-none"
+            target="_blank">{{resultadoEquipo?.website}}</a></p>
+    <p class="size13 text-center">Email: {{resultadoEquipo?.email}}</p>
+    <p class="size13 text-center">Año de fundación: {{resultadoEquipo?.founded}}</p>
+    <p class="size13 text-center">Colores del equipo: {{resultadoEquipo?.clubColors}}</p>
+    <p class="size13 text-center">Estadio: {{resultadoEquipo?.venue}}</p>
+    <div class="row">
+        <h3 *ngIf="resultadoEquipo?.activeCompetitions.length == null" class="text-center mt-4 mb-3 mx-auto d-block">
+            Competencias en
+            las que participa</h3>
+        <div class=" col-md-12" *ngFor="let competencia of resultadoEquipo?.activeCompetitions">
+            <div class="card-header border bg-info">
+                <h5 class="card-title">{{competencia.name}}</h5>
+            </div>
+            <div class="card-body border bg-light">
+                <p class="card-text">Área: {{competencia.area.name}}</p>
+            </div><br>
+        </div>
+
+    </div>
+    <div class="row mb-3">
+        <h3 class="text-center mt-3 mb-3 mx-auto d-block">Plantilla</h3>
+        <div class="col-md-12">
+            <div class="list-group mb-2" *ngFor="let jugador of resultadoEquipo?.squad">
+                <a class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{jugador.name}}</h5>
+                        <small>{{jugador.role}}</small>
+                    </div>
+                    <p class="mb-1">{{jugador.position}}</p>
+                    <p>Nacionalidad: {{jugador.nationality}}</p>
+                    <p>País de nacimiento: {{jugador.countryOfBirth}}</p>
+                    <small>Fecha de nacimiento: {{jugador.dateOfBirth | amLocale: 'es' | amDateFormat:'LL'}}</small>
+                </a>
+            </div>
+        </div>
+        <p>Última actualización: {{resultadoEquipo?.lastUpdated | amLocale: 'es' | amDateFormat: 'DD-MM-YYYY HH:mm'}}
+        </p>
+    </div>
+</div>

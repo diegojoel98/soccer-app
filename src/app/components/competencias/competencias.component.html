@@ -1,0 +1,49 @@
+<div class="vh-competencias"
+    title="Tienes un número limitado de recargas a la página por minuto, si notas que no carga algún elemento o se tarda demasiado, debes esperar 60 segundos para recargar, si aún no recarga debes esperar 60 segundos y abrir la página en otra pestaña">
+    <h2 routerLink="/competencias"
+        class="text-center pt-5 text-white animate__animated animate__backInDown mb-5 pointer title-competencias">
+        Competencias</h2>
+
+    <div *ngIf="!resultado">
+        <p class="text-center text-white h3 ml-4">Cargando ...</p>
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-3 mb-3" *ngFor="let elemento of resultado?.competitions;">
+                    <div class="card pointer">
+                        <a [routerLink]="['/competencia/', elemento.code]" class="text-dark text-decoration-none">
+                            <span *ngIf="elemento.emblemUrl">
+                                <img src="{{elemento.emblemUrl}}" class="card-img-top" alt="{{elemento.name}}">
+                            </span>
+                            <span *ngIf="elemento.emblemUrl == null && elemento.area.ensignUrl">
+                                <img src="{{elemento.area.ensignUrl}}" class="card-img-top">
+                            </span>
+                            <span *ngIf="elemento.emblemUrl == null && elemento.area.ensignUrl == null">
+                                <img src="../../../assets/img/notFoundCompetition.jpg"
+                                    class="card-img-top embed-responsive" alt="{{elemento.name}}">
+                            </span>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{elemento.name}}</h5>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">{{elemento.area.name}}</li>
+                                <li class="list-group-item">Inicio de temporada: {{elemento.currentSeason.startDate |
+                                    amLocale: 'es' | amDateFormat:'LL'}}
+                                </li>
+                                <li class="list-group-item">Fin de temporada: {{elemento.currentSeason.endDate |
+                                    amLocale: 'es' | amDateFormat:'LL'}}</li>
+                            </ul>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
