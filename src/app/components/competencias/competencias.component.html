@@ -17,16 +17,19 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-3 mb-3" *ngFor="let elemento of resultado?.competitions;">
-                    <div class="card pointer">
+                    <div class="card pointer mb-2">
                         <a [routerLink]="['/competencia/', elemento.code]" class="text-dark text-decoration-none">
                             <span *ngIf="elemento.emblemUrl">
-                                <img src="{{elemento.emblemUrl}}" class="card-img-top" alt="{{elemento.name}}">
+                                <img [ngClass]="{'max-h': elemento.name == 'Serie A' || elemento.name == 'UEFA Champions League'}"
+                                    src="{{elemento.emblemUrl}}" class="card-img-top" alt="{{elemento.name}}">
                             </span>
                             <span *ngIf="elemento.emblemUrl == null && elemento.area.ensignUrl">
-                                <img src="{{elemento.area.ensignUrl}}" class="card-img-top">
+                                <img [ngClass]="{'max-h': elemento.name == 'Serie A' || elemento.name == 'UEFA Champions League'}"
+                                    src="{{elemento.area.ensignUrl}}" class="card-img-top">
                             </span>
                             <span *ngIf="elemento.emblemUrl == null && elemento.area.ensignUrl == null">
-                                <img src="assets/img/notFoundCompetition.jpg" class="card-img-top embed-responsive"
+                                <img [ngClass]="{'max-h': elemento.name == 'Serie A' || elemento.name == 'UEFA Champions League'}"
+                                    src="assets/img/notFoundCompetition.jpg" class="card-img-top embed-responsive"
                                     alt="{{elemento.name}}">
                             </span>
                             <div class="card-body text-center">

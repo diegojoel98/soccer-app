@@ -22,7 +22,7 @@ export class UltimoPartidoComponent implements OnInit {
         data => {
           this.resultado = data;
           let s = this.resultado[0].embed;
-          document.getElementById('uno').innerHTML = s;
+          document.getElementById('videos').innerHTML = s;
         },
         error => console.log(error)
       );

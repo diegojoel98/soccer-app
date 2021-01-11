@@ -104,7 +104,7 @@ a.nav-link:hover, .activeLink {
     background: linear-gradient(to right, #99f2c8, #1f4037); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-#uno {
+#videos {
     width: 55%;
     height: auto;
     margin-left: auto;
@@ -113,13 +113,18 @@ a.nav-link:hover, .activeLink {
 }
 
 @media (max-width: 768px) { 
-    #uno {
-        width: 80%;
+    #videos, .video-iframe {
+        width: 80%!important;
     }
+
 }
 
 iframe {
     border-radius: 4px;
+}
+
+.video-iframe {
+    width: 55%;
 }
 
 div.BatPlayer {
@@ -161,6 +166,10 @@ div.BatPlayer {
 .card:hover {
     background-color: #ccc!important;
     transform: scale(1.01);
+}
+
+.max-h {
+    max-height: 200px;
 }
 
 /* Vista Equipo cmp*/

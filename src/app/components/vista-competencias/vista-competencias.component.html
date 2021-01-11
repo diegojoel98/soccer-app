@@ -68,17 +68,19 @@
                         [routerLink]="['/equipo/', equipo.id]">
                         <a [routerLink]="['/equipo/', equipo.id]" class="text-decoration-none text-dark">
                             <p class="text-center link pt-2">{{equipo?.name}}</p>
-                            <p class="text-muted">{{equipo.shortName}}</p>
+                            <p *ngIf="equipo?.shortName != null" class="text-muted">{{equipo.shortName}}</p>
                             <img *ngIf="equipo?.crestUrl" src="{{equipo?.crestUrl}}" alt="{{equipo?.name}}"
                                 class="img-fluid">
                             <img *ngIf="!equipo?.crestUrl" src="assets/img/notFoundCompetition.jpg"
                                 alt="{{equipo?.name}}" class="img-fluid"><br><br>
-                            <p><b>Dirrección: </b>{{equipo?.address}}</p>
-                            <p><b>Sitio web: </b><a href="{{equipo?.website}}" target="_blank"
-                                    class="text-decoration-none">{{equipo?.website}}</a></p>
-                            <p><b>Año de fundación: </b>{{equipo?.founded}}</p>
-                            <p><b>Colores del club: </b>{{equipo?.clubColors}}</p>
-                            <p><b>Estadio: </b>{{equipo?.venue}}</p>
+                            <p *ngIf="equipo?.address != null"><b>Dirrección: </b>{{equipo?.address}}</p>
+                            <p *ngIf="equipo?.website != null"><b>Sitio web: </b><a href="{{equipo?.website}}"
+                                    target="_blank" class="text-decoration-none">{{equipo?.website}}</a></p>
+                            <p *ngIf="equipo?.founded != null"><b>Año de fundación: </b>{{equipo?.founded}}
+                            </p>
+                            <p *ngIf="equipo?.clubColors != null"><b>Colores del club:
+                                </b>{{equipo?.clubColors}}</p>
+                            <p *ngIf="equipo?.venue != null"><b>Estadio: </b>{{equipo?.venue}}</p>
                         </a>
                     </div>
                 </div>

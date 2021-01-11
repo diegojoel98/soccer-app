@@ -10,22 +10,28 @@
     </div>
 
     <h2 class="text-center link title mt-3">{{resultadoEquipo?.name}}</h2>
-    <small class="text-center text-muted d-block">{{resultadoEquipo?.shortName}}</small>
-    <small class="text-center text-muted d-block mb-2">Nombre corto: {{resultadoEquipo?.tla}}</small>
+    <small *ngIf="resultadoEquipo?.shortName != null"
+        class="text-center text-muted d-block">{{resultadoEquipo?.shortName}}</small>
+    <small *ngIf="resultadoEquipo?.tla != null" class="text-center text-muted d-block mb-2">Nombre corto:
+        {{resultadoEquipo?.tla}}</small>
     <img *ngIf="resultadoEquipo?.crestUrl" src="{{resultadoEquipo?.crestUrl}}" alt="{{resultadoEquipo?.name}}"
         class="img-fluid mx-auto d-block" style="width: 250px;"><br>
     <img *ngIf="!resultadoEquipo?.crestUrl" src="assets/img/notFoundCompetition.jpg" alt="{{resultadoEquipo?.name}}"
         class="img-fluid mx-auto d-block" style="width: 200px;"><br>
-    <p class="size13 text-center">Dirrección: {{resultadoEquipo?.address}}</p>
-    <p class="size13 text-center">Teléfono: {{resultadoEquipo?.phone}}</p>
-    <p class="size13 text-center">Website: <a href="{{resultadoEquipo?.website}}" class="text-decoration-none"
+    <p *ngIf="resultadoEquipo?.address != null" class="size13 text-center">Dirrección: {{resultadoEquipo?.address}}
+    </p>
+    <p *ngIf="resultadoEquipo?.phone != null" class="size13 text-center">Teléfono: {{resultadoEquipo?.phone}}</p>
+    <p *ngIf="resultadoEquipo?.website != null" class="size13 text-center">Website: <a
+            href="{{resultadoEquipo?.website}}" class="text-decoration-none"
             target="_blank">{{resultadoEquipo?.website}}</a></p>
-    <p class="size13 text-center">Email: {{resultadoEquipo?.email}}</p>
-    <p class="size13 text-center">Año de fundación: {{resultadoEquipo?.founded}}</p>
-    <p class="size13 text-center">Colores del equipo: {{resultadoEquipo?.clubColors}}</p>
-    <p class="size13 text-center">Estadio: {{resultadoEquipo?.venue}}</p>
+    <p *ngIf="resultadoEquipo?.email != null" class="size13 text-center">Email: {{resultadoEquipo?.email}}</p>
+    <p *ngIf="resultadoEquipo?.founded != null" class="size13 text-center">Año de fundación:
+        {{resultadoEquipo?.founded}}</p>
+    <p *ngIf="resultadoEquipo?.clubColors != null" class="size13 text-center">Colores del equipo:
+        {{resultadoEquipo?.clubColors}}</p>
+    <p *ngIf="resultadoEquipo?.venue != null" class="size13 text-center">Estadio: {{resultadoEquipo?.venue}}</p>
     <div class="row">
-        <h3 *ngIf="resultadoEquipo?.activeCompetitions.length == null" class="text-center mt-4 mb-3 mx-auto d-block">
+        <h3 *ngIf="resultadoEquipo?.activeCompetitions.length != 0" class="text-center mt-4 mb-3 mx-auto d-block">
             Competencias en
             las que participa</h3>
         <div class=" col-md-12" *ngFor="let competencia of resultadoEquipo?.activeCompetitions">
@@ -39,7 +45,7 @@
 
     </div>
     <div class="row mb-3">
-        <h3 class="text-center mt-3 mb-3 mx-auto d-block">Plantilla</h3>
+        <h3 *ngIf="resultadoEquipo?.squad.length != 0" class="text-center mt-3 mb-3 mx-auto d-block">Plantilla</h3>
         <div class="col-md-12">
             <div class="list-group mb-2" *ngFor="let jugador of resultadoEquipo?.squad">
                 <a class="list-group-item list-group-item-action">
